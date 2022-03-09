@@ -23,13 +23,13 @@ public class StudyDashboard {
     }
 
     private void print() throws IOException, InterruptedException {
-        GitHub gitHub = GitHub.connect();
-        GHRepository repository = gitHub.getRepository("whiteship/live-study");
+        GHRepository repository = getGhRepository();
         List<Participant> participants = new CopyOnWriteArrayList<>();
 
-        int totalNumberOfEvents = 15;
         ExecutorService service = Executors.newFixedThreadPool(8);
-        CountDownLatch latch = new CountDownLatch(totalNumberOfEvents);
+
+        int totalNumberOfEvents = 15;
+        CountDownLatch latch = getCountDownLatch(totalNumberOfEvents);
 
         for (int index = 1 ; index <= totalNumberOfEvents ; index++) {
             int eventId = index;
@@ -72,15 +72,34 @@ public class StudyDashboard {
             writer.print(header(totalNumberOfEvents, participants.size()));
 
             participants.forEach(p -> {
-                long count = p.homework().values().stream()
-                        .filter(v -> v == true)
-                        .count();
-                double rate = count * 100 / totalNumberOfEvents;
-
-                String markdownForHomework = String.format("| %s %s | %.2f%% |\n", p.username(), checkMark(p, totalNumberOfEvents), rate);
+                String markdownForHomework = getMarkdownForParticipant(totalNumberOfEvents, p);
                 writer.print(markdownForHomework);
             });
         }
+    }
+
+    private CountDownLatch getCountDownLatch(int totalNumberOfEvents) {
+        CountDownLatch latch = new CountDownLatch(totalNumberOfEvents);
+        return latch;
+    }
+
+    private GHRepository getGhRepository() throws IOException {
+        GitHub gitHub = GitHub.connect();
+        GHRepository repository = gitHub.getRepository("whiteship/live-study");
+        return repository;
+    }
+
+    private double getRate(int totalNumberOfEvents, Participant p) {
+        long count = p.homework().values().stream()
+                .filter(v -> v == true)
+                .count();
+        double rate = count * 100 / totalNumberOfEvents;
+        return rate;
+    }
+
+    private String getMarkdownForParticipant(int totalNumberOfEvents, Participant p) {
+        return String.format("| %s %s | %.2f%% |\n", p.username(),
+                checkMark(p, totalNumberOfEvents), getRate(totalNumberOfEvents, p));
     }
 
     /**
