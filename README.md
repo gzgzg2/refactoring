@@ -1,5 +1,8 @@
 
-# 리팩토링 목차
+# 📋 리팩토링 목차
+
+## 📌 출처
+[리팩토링 강의(인프런 백기선님)](https://www.inflearn.com/course/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
 
 ## [냄새 1. 이해하기 힘든 이름](https://github.com/gzgzg2/refactoring/tree/main/src/main/java/me/whiteship/refactoring/_01_smell_mysterious_name)
 - 함수 선언 변경하기
@@ -32,10 +35,3 @@
 - 변수 쪼개기
 - 질의 함수와 변경 함수 분리하기
 - 세터 제거하기 
-
-
-<br>
-<br>
-
-## 📌 출처
-[리팩토링 강의(인프런 백기선님)](https://www.inflearn.com/course/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
