@@ -45,8 +45,7 @@ public class StudyDashboard {
     }
 }
 ```
-특별히 문제점이 있다고 생각되지는 않는다. 
-하지만 `loadReviews()` 메소드를 살펴보면 분명 Review를 읽어오는 작업임에도 Review와 관련된 변수가 존재하지 않는다.
+특별히 문제점이 있다고 생각되지는 않는다. 하지만 `loadReviews()` 메소드를 살펴보면 분명 Review를 읽어오는 작업임에도 Review와 관련된 변수가 존재하지 않는다.
 로직을 이해하는데에 있어 큰 문제는 아니지만 그래도 명확한 변수명이 모호한 변수명보다 코드 이해가 쉬울 것이다
 
 
@@ -91,5 +90,6 @@ public class StudyDashboard {
     }
 }
 ```
-`loadReviews()`의 comments를 reviews로 변경하였다. 변수명을 변경하고 난 후에는 `issue.getComments()` 의 comment가 무엇인지 고민할 필요가 없어졌다.
+해당 예제에선 issue에 남겨진 comment가 후기를 의미하는 것이다. 변경전 변수명으론 issue의 comment가 무엇을 의미하는 지 확인하려면 for문 아래 로직을 분석해야만 했다. 
+하지만 변수명이 변경되고 나서는 comment가 리뷰임을 명시하고 있으므로 for문 아래의 로직을 전부 분석하지 않고도 `issue.getComments()` 의 리턴값이 무엇을 의미하는 지 알 수 있게 되었다.
 추가적으로 기존에 필드에 선언되어있던 reviews와 변경한 변수명이 동일하기 때문에 필드에 선언된 변수임을 명시하기 위해 this 키워드를 붙여주었다.
