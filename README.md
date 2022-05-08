@@ -9,7 +9,7 @@
 
 [변수 이름 바꾸기](https://github.com/gzgzg2/refactoring/blob/main/src/main/java/me/whiteship/refactoring/_01_smell_mysterious_name/_02_rename_variable/README.md)
 
-필드 이름 바꾸기
+[필드 이름 바꾸기](https://github.com/gzgzg2/refactoring/tree/main/src/main/java/me/whiteship/refactoring/_01_smell_mysterious_name/_03_rename_field)
 
 ## [냄새 2. 중복 코드](https://github.com/gzgzg2/refactoring/tree/main/src/main/java/me/whiteship/refactoring/_02_duplicated_code)
 함수 추출하기
