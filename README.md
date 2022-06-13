@@ -12,7 +12,7 @@
 [필드 이름 바꾸기](https://github.com/gzgzg2/refactoring/tree/main/src/main/java/me/whiteship/refactoring/_01_smell_mysterious_name/_03_rename_field)
 
 ## [냄새 2. 중복 코드](https://github.com/gzgzg2/refactoring/tree/main/src/main/java/me/whiteship/refactoring/_02_duplicated_code)
-함수 추출하기
+[함수 추출하기](https://github.com/gzgzg2/refactoring/tree/main/src/main/java/me/whiteship/refactoring/_02_duplicated_code/_04_extract_function)
 
 코드 정리하기
 
